@@ -49,8 +49,8 @@ namespace Abis.Mbs.MvcWebUI
                 options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
             }).AddGoogle(options =>
             {
-                options.ClientId = "279391159521-e2jbv9rvcfprk8onsuod7ktht8gfq5tc.apps.googleusercontent.com";
-                options.ClientSecret = "bMfEmY1HU4eJ8eI2hGFWAIQF";
+                options.ClientId = "279391159521-jddnprd07bnk2tp8l2u2fkivrj9ul7sp.apps.googleusercontent.com";
+                options.ClientSecret = "0GDZGnuTfrQKAmAwi53SRDjO";
             }).AddFacebook(options =>
             {
                 options.AppId = "695158094276594";
