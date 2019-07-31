@@ -3,7 +3,7 @@
 
 # ASP.NET Core & EntityFramework Core Based Startup Template
 
-This template is a simple startup project to start with ABP
+This template is a simple startup project 
 using ASP.NET Core and EntityFramework Core.
 
 ## Prerequirements
