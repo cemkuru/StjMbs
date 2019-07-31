@@ -21,6 +21,10 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         private SignInManager<CustomIdentityUser> _signInManager;
 
 
+        //fghjj
+
+
+
         public AccountController(UserManager<CustomIdentityUser> userManager, RoleManager<CustomIdentityRole> roleManager, SignInManager<CustomIdentityUser> signInManager)
         {
             _userManager = userManager;
