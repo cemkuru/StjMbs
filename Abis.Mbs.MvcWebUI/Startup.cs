@@ -9,6 +9,8 @@ using Abis.Mbs.DataAccess.Concrete.EntityFramework;
 using Abis.Mbs.MvcWebUI.Entities;
 using Abis.Mbs.MvcWebUI.Middlewares;
 using Abis.Mbs.MvcWebUI.Services;
+using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +42,20 @@ namespace Abis.Mbs.MvcWebUI
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDistributedMemoryCache();
+            // Facebook and Google authentication login 7/30/2019
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
+            }).AddGoogle(options =>
+            {
+                options.ClientId = "279391159521-jddnprd07bnk2tp8l2u2fkivrj9ul7sp.apps.googleusercontent.com";
+                options.ClientSecret = "0GDZGnuTfrQKAmAwi53SRDjO";
+            }).AddFacebook(options =>
+            {
+                options.AppId = "695158094276594";
+                options.AppSecret = "7fd60c3070e548a0d71ed4b6b4b1708c";
+            });
 
         }
 
