@@ -21,7 +21,6 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         private SignInManager<CustomIdentityUser> _signInManager;
 
 
-        //fghjj
 
 
 
@@ -161,7 +160,7 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-                return LocalRedirect(returnUrl);
+                return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
             {
@@ -198,15 +197,34 @@ namespace Abis.Mbs.MvcWebUI.Controllers
                     if (result.Succeeded)
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        return RedirectToLocal(returnUrl);
                     }
                 }
-                ModelState.AddModelError("Invalid login",ErrorMessage);
+                AddErrors(result);
             }
 
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
         }
 
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
     }
 }
