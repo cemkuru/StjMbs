@@ -9,8 +9,8 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-    <div class="col-md-12">
-        <nav class="navbar navbar-default">
+    <div class="col-lg-12">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -26,44 +26,87 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a asp-controller="Account" asp-action="Login">Admin<span class="sr-only">(current)</span></a></li>
                         <li class="active"><a asp-controller="Announcement" asp-action="Index">Announcements<span class="sr-only">(current)</span></a></li>
-                        @*<li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">Dropdown<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another Action</a></li>
-                                    <li><a href="#">Something Else Here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated Link</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">One More Separated Link</a></li>
-                                </ul>
-                            </li>*@
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">Dropdown<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another Action</a></li>
+                                <li><a href="#">Something Else Here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated Link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One More Separated Link</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @*<li><a href="#">Link</a></li>*@
                         @*<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Your Cart<span class="caret"></span></a>*@
-                            @*@await Component.InvokeAsync("CartSummary")*@
+                        @*@await Component.InvokeAsync("CartSummary")*@
 
 
-                            @*<ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another Action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated Link</a></li>
-                                </ul>*@
-                        
+                        @*<ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another Action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated Link</a></li>
+                            </ul>*@
+
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="col-md-10">
+    
         @RenderBody()
-    </div>
-
+ 
+    <div class="col-lg-12">
+        <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+            <div class="container">
+                <div class="row row-30">
+                    <div class="col-md-4 col-xl-5">
+                        <div class="pr-xl-4">
+                            <a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                            <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+                            <!-- Rights-->
+                            <p class="rights"><span>©&nbsp; </span><span class="copyright-year">2018</span><span>&nbsp;</span><span>Waves</span><span>.&nbsp;</span><span>All Rights Reserved.</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacts</h5>
+                        <dl class="contact-list">
+                            <dt>Address:</dt>
+                            <dd>798 South Park Avenue, Jaipur, Raj</dd>
+                        </dl>
+                        <dl class="contact-list">
+                            <dt>email:</dt>
+                            <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+                        </dl>
+                        <dl class="contact-list">
+                            <dt>phones:</dt>
+                            <dd>
+                                <a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <h5>Links</h5>
+                        <ul class="nav-list">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+        </footer>
+        </div>
 </body>
 </html>
