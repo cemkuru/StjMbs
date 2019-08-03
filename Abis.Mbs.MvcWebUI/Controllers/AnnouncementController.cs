@@ -25,5 +25,16 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             };
             return View(model);
         }
+        public ActionResult Detial(int id)
+        {
+
+            var announcements = _announcementService.GetById(id);
+            AnnouncementViewModel model = new AnnouncementViewModel
+            {
+                Announcement = announcements
+            };
+            return View(model);
+        }
+
     }
 }
