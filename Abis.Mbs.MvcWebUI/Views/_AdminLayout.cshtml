@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="col-md-12">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -29,7 +29,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a asp-controller="Product" asp-action="Index">Products Store <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a asp-controller="Announcement" asp-action="Index">Announcements <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a></li>
                     </ul>
                     @if (User.Identity.IsAuthenticated)
                     {

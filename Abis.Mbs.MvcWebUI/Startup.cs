@@ -28,6 +28,12 @@ namespace Abis.Mbs.MvcWebUI
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+
+          
+
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
@@ -90,7 +96,7 @@ namespace Abis.Mbs.MvcWebUI
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
             //Home/Index
-            routeBuilder.MapRoute("Default", "{controller=Product}/{action=Index}/{id?}");
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
         
     }
