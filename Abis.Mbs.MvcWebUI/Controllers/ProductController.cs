@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abis.Mbs.Business.Abstract;
 using Abis.Mbs.MvcWebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,14 +34,7 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             return View(model);
         }
 
-        //public string Session()
-        //{
-        //    HttpContext.Session.SetString("city","Ankara");
-        //    HttpContext.Session.SetInt32("age",32);
-
-        //    HttpContext.Session.GetString("city");
-        //    HttpContext.Session.GetInt32("age");
-        //}
+      
 
         public ActionResult Login()
         {

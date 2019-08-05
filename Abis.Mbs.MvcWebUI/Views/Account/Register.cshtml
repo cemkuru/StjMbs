@@ -14,7 +14,7 @@
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a asp-controller="Account" asp-action="Login">Sign In</a></div>
             </div>
             <div class="panel-body">
-                <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
+                <form asp-controller="Account" asp-action="Register" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
                     <div class="form-group">
                         <label asp-for="UserName" class="col-md-3 control-label"></label>
                         <div class="col-md-9">
