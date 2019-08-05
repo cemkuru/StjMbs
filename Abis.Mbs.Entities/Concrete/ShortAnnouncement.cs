@@ -16,8 +16,11 @@ namespace Abis.Mbs.Entities.Concrete
         public string Title { get; set; }
         
         public string Information { get; set; }
+        //[Required,StringLength(350)]
+        //public string Imagepath { get; set; }
 
-        
+
+
         public string Click { get; set; }
     }
 }
