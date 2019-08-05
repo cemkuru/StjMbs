@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
-    [AllowAnonymous]
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
