@@ -1,0 +1,38 @@
+﻿@model Abis.Mbs.MvcWebUI.Models.JobListViewModel
+@{
+    ViewData["Title"] = "JobIndex";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h1>JobIndex</h1>
+
+<a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="AddJob">Add a new Job</a>
+<div>
+    <table class="table table-bordered table-responsive ">
+        <thead class="thead-dark">
+            <tr>
+                <td scope="col">Post</td>
+                <td scope="col">Area</td>
+                <td scope="col">Country</td>
+                <td scope="col">City</td>
+
+                <td>Update</td>
+                <td> Delete</td>
+            </tr>
+        </thead>
+
+        @foreach (var job in Model.Jobs)
+        {
+            <tbody>
+                <tr>
+                    <td>@job.PostTitle</td>
+                    <td>@job.Area</td>
+                    <td>@job.Country</td>
+                    <td>@job.City</td>
+                    <td><a class="btn btn-xs btn-info" asp-controller="Admin" asp-action="Update" asp-route-announcementId="@job.JobID">Update</a></td>
+                    <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-announcementId="@job.JobID">Delete</a></td>
+                </tr>
+                </tbody>
+        }
+    </table>
+</div>

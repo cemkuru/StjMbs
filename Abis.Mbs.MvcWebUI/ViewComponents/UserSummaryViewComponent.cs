@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 
 namespace Abis.Mbs.MvcWebUI.ViewComponents
 {
-    public class UserSummaryViewComponent : ViewComponent
+    public class UserSummaryViewComponent : ViewComponent 
     {
         public ViewViewComponentResult Invoke()
         {

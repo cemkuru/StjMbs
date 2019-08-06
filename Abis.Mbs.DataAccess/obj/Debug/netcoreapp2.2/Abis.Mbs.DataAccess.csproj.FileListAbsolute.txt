@@ -26,3 +26,17 @@ C:\Users\Cem\Desktop\Abc\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.Da
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.csproj.CopyComplete
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.dll
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.deps.json
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Core.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Core.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.csprojAssemblyReference.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.AssemblyInfo.cs
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.csproj.CopyComplete
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.DataAccess\obj\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.pdb

@@ -15,3 +15,11 @@ C:\Users\Cem\Desktop\Abc\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInf
 C:\Users\Cem\Desktop\Abc\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInfo.cs
 C:\Users\Cem\Desktop\Abc\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.dll
 C:\Users\Cem\Desktop\Abc\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.deps.json
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.csproj.CoreCompileInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInfoInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInfo.cs
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.pdb

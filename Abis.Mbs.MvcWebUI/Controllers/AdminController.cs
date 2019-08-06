@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Abis.Mbs.Business.Abstract;
+﻿using Abis.Mbs.Business.Abstract;
 using Abis.Mbs.Entities.Concrete;
 using Abis.Mbs.MvcWebUI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -10,56 +6,126 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
-    [AllowAnonymous]
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        private IProductService _productService;
-        private ICategoryService _categoryService;
+        private IAnnouncementService _announcementService;
+        // Add Job Announcement Service
+        private IJobService _jobService;
+        
 
-        public AdminController(IProductService productService, ICategoryService categoryService)
+        public AdminController(IAnnouncementService announcementService, ICategoryService categoryService, IJobService jobService)
         {
-            _productService = productService;
-            _categoryService = categoryService;
+            _announcementService = announcementService;
+            _jobService = jobService;
+        }
+        //Job Index
+        public ActionResult JobIndex()
+        {
+            var jobListViewModel = new JobListViewModel
+            {
+                Jobs = _jobService.GetAll()
+            };
+            return View(jobListViewModel);
+        }
+       
+
+        //Add Job
+        public ActionResult AddJob()
+        {
+            var model = new JobAddViewModel
+            {
+                Job = new Job(),
+            };
+            return View(model);
         }
 
+
+        // POST/Add Job
+        [HttpPost]
+        public ActionResult AddJob(Job job)
+        {
+            if (ModelState.IsValid)
+            {
+                _jobService.Add(job);
+                TempData.Add("message", "Job has been added sucessfully");
+            }
+            return RedirectToAction("JobIndex");
+        }
+
+        // Update Job
+        public ActionResult UpdateJob(int JobId)
+        {
+            var model = new JobUpdateViewModel
+            {
+                Job = _jobService.GetById(JobId),
+            };
+            return View(model);
+        }
+
+        // POST/Update Job
+        [HttpPost]
+        public ActionResult UpdateJob(Job job)
+        {
+            if (ModelState.IsValid)
+            {
+                _jobService.Update(job);
+
+                TempData.Add("message", "Job was successfully updated");
+            }
+
+            return RedirectToAction("JobIndex");
+        }
+
+
+
+        public ActionResult DeleteJob(int JobId)
+        {
+            _jobService.Delete(JobId);
+
+            TempData.Add("message", "Job was successfully deleted");
+            return RedirectToAction("JobIndex");
+        }
+
+        // Anouncement
         public ActionResult Index()
         {
-            var productListViewModel = new ProductListViewModel
+            var announcementListViewModel = new AnnouncementListViewModel
             {
-                Products = _productService.GetAll()
+                Announcements = _announcementService.GetAll()
             };
-            return View(productListViewModel);
+            return View(announcementListViewModel);
         }
 
         public ActionResult Add()
         {
-            var model = new ProductAddViewModel
+            var model = new AnnouncementAddViewModel
             {
-                Product = new Product(),
-                Categories = _categoryService.GetAll()
-            };
+                Announcement = new Announcement(),
+                
+            }; 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Add(Product product)
+        public ActionResult Add(Announcement announcement)
         {
             if (ModelState.IsValid)
             {
-                _productService.Add(product);
-                TempData.Add("message", "Product was successfully added");
+                _announcementService.Add(announcement);
+
+                TempData.Add("message", "Announcement was successfully added");
             }
 
-            return RedirectToAction("Add");
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Update(int productId)
+        public ActionResult Update(int announcementId)
         {
-            var model = new ProductUpdateViewModel
+            var model = new AnnouncementUpdateViewModel
             {
-                Product = _productService.GetById(productId),
-                Categories = _categoryService.GetAll()
+                Announcement = _announcementService.GetById(announcementId),
+                
             };
 
             return View(model);
@@ -67,21 +133,21 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(Product product)
+        public ActionResult Update(Announcement announcement)
         {
             if (ModelState.IsValid)
             {
-                _productService.Update(product);
-                TempData.Add("message", "Product was successfully updated");
+                _announcementService.Update(announcement);
+                TempData.Add("message", "Announcement was successfully updated");
             }
 
-            return RedirectToAction("Update");
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int productId)
+        public ActionResult Delete(int announcementId)
         {
-            _productService.Delete(productId);
-            TempData.Add("message", "Product was successfully deleted");
+            _announcementService.Delete(announcementId);
+            TempData.Add("message", "Announcement was successfully deleted");
             return RedirectToAction("Index");
         }
 

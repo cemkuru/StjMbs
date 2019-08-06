@@ -16,6 +16,12 @@ namespace Abis.Mbs.DataAccess.Concrete.EntityFramework
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+
+
+
+
 
     }
 }
