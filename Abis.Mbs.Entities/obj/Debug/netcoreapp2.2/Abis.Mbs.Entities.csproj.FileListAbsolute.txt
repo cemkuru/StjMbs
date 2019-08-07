@@ -22,6 +22,7 @@ C:\Users\Cem\Desktop\Abc\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Enti
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.csproj.CopyComplete
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
 C:\Users\Cem\Desktop\Abc\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+<<<<<<< HEAD
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.deps.json
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
@@ -34,3 +35,17 @@ C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.csproj.CopyComplete
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+=======
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.deps.json
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Core.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\bin\Debug\netcoreapp2.2\Abis.Core.pdb
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.csprojAssemblyReference.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.AssemblyInfoInputs.cache
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.AssemblyInfo.cs
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.csproj.CopyComplete
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.dll
+C:\Users\Amadou\Documents\StjMbs\Abis.Mbs.Entities\obj\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+>>>>>>> 8ef45fe69fe0ebc764a2c0ff8b47b8fb2df9085b

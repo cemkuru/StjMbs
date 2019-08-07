@@ -1,5 +1,6 @@
-﻿using Abis.Mbs.Business.Abstract;
+﻿    using Abis.Mbs.Business.Abstract;
 using Abis.Mbs.MvcWebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
+    [AllowAnonymous]
+    [Authorize (Roles = "User")]
     public class AnnouncementController : Controller
     {
         private IAnnouncementService _announcementService;

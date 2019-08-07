@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Abis.Mbs.MvcWebUI.Entities;
+using Abis.Mbs.MvcWebUI.ExtensionMethods;
 using Abis.Mbs.MvcWebUI.Models;
+using Abis.Mbs.MvcWebUI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,22 +16,30 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
-    
+
     public class AccountController : Controller
     {
         private UserManager<CustomIdentityUser> _userManager;
         private RoleManager<CustomIdentityRole> _roleManager;
         private SignInManager<CustomIdentityUser> _signInManager;
 
+        private readonly IEmailSender _emailSender;
 
 
 
 
-        public AccountController(UserManager<CustomIdentityUser> userManager, RoleManager<CustomIdentityRole> roleManager, SignInManager<CustomIdentityUser> signInManager)
+
+        public AccountController
+            (UserManager<CustomIdentityUser> userManager,
+            RoleManager<CustomIdentityRole> roleManager, 
+            SignInManager<CustomIdentityUser> signInManager,
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
+
         }
 
         [TempData]
@@ -39,10 +50,12 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             return View();
         }
 
+        // 8/1/2019
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel, string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
                 CustomIdentityUser user = new CustomIdentityUser
@@ -51,16 +64,16 @@ namespace Abis.Mbs.MvcWebUI.Controllers
                     Email = registerViewModel.Email
                 };
 
-                IdentityResult result =
-                    _userManager.CreateAsync(user, registerViewModel.Password).Result;
+                IdentityResult result = _userManager.CreateAsync(user, registerViewModel.Password).Result;
+
 
                 if (result.Succeeded)
                 {
-                    if (!_roleManager.RoleExistsAsync("Admin").Result)
+                    if (!_roleManager.RoleExistsAsync("User").Result)
                     {
                         CustomIdentityRole role = new CustomIdentityRole
                         {
-                            Name = "Admin"
+                            Name = "User"
                         };
 
                         IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
@@ -72,24 +85,74 @@ namespace Abis.Mbs.MvcWebUI.Controllers
                         }
                     }
 
-                    _userManager.AddToRoleAsync(user, "Admin").Wait();
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    //await _emailSender.SendEmailConfirmationAsync(registerViewModel.Email, callbackUrl);
+                    _userManager.AddToRoleAsync(user, "User").Wait();
+                    
+                    // Email Confirmation
+                    string confirmationToken = _userManager.GenerateEmailConfirmationTokenAsync(user).Result;
+                    var confirmationLink = Url.Action("ConfirmEmail", "Account", new
+                    {
+                        userid = user.Id,
+                        token = confirmationToken
+                    },
+
+                    protocol: HttpContext.Request.Scheme);
+
+                    string confirmationEmailBody = string.Format("<a href='" + confirmationLink + "'>") + "</a>";// confirmation link
+                    SmtpClient client = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        Credentials = new NetworkCredential("gueye.amadou1996@gmail.com", "np13novembre"),
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        EnableSsl = true
+                    };
+                    MailMessage mail = new MailMessage
+                    {
+                      //string link = String.Format("<a href=\"http://localhost:1900/ResetPassword/?username={0}&reset={1}\">Click here</a>", user.UserName, HashResetParams( user.UserName, user.ProviderUserKey.ToString() ));
+
+                        From = new MailAddress("gueye.amadou1996@gmail.com", user.Email),
+                        Body = "Dear " + user.Email + ",\nYour Mbs account has been created successfully." +
+                        "Please confirm",
+                        Subject = "your account is activated"
+                    };
+                    mail.To.Add(new MailAddress(user.Email));
+
+                    client.Send(mail);
+                    // End email confirmation
+
+
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
                     foreach (var error in result.Errors)
-                        ModelState.AddModelError("", error.Description);
-
-
+                        ModelState.AddModelError(" ", error.Description);
                 }
             }
 
             return View(registerViewModel);
         }
-
-        public ActionResult Login()
+        // confirm email 8/1/2019
+        [AllowAnonymous]
+        public IActionResult ConfirmEmail(string userid, string token)
         {
-            return View();
+            CustomIdentityUser user = _userManager.FindByIdAsync(userid).Result;
+            IdentityResult result = _userManager.ConfirmEmailAsync(user, token).Result;
+
+            if (result.Succeeded)
+            {
+                ViewBag.Message = "Email confirmed successfully!";
+                return View("Success");
+            }
+
+            else
+            {
+                ViewBag.Message = "Error while confirming Email";
+                return View("Error");
+            }
         }
 
         [HttpGet]
@@ -114,14 +177,14 @@ namespace Abis.Mbs.MvcWebUI.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 ModelState.AddModelError("", "Invalid login!");
             }
 
             return View(loginViewModel);
-        }        
+        }
 
 
         public ActionResult LogOff()
@@ -206,6 +269,9 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
         }
+
+       
+
 
         private IActionResult RedirectToLocal(string returnUrl)
         {

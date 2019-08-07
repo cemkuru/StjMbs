@@ -32,7 +32,9 @@ namespace Abis.Mbs.MvcWebUI
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
-          
+            // Job Service and job data acess layers
+            services.AddScoped<IJobService, JobManager>();
+            services.AddScoped<IJobDal, EfJobDal>();
 
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
@@ -41,13 +43,15 @@ namespace Abis.Mbs.MvcWebUI
             services.AddSingleton<ICartSessionService, CartSessionService>();
             services.AddScoped<ICartService, CartService>();
             services.AddDbContext<CustomIdentityDbContext>
-                (options => options.UseSqlServer("Data Source=staj2019.database.windows.net;Database=mbs_2019;User ID=Abisstaj2019;Password=Chha4773;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")); services.AddIdentity<CustomIdentityUser, CustomIdentityRole>()
+                (options => options.UseSqlServer("Data Source=staj2019.database.windows.net;Database=mbs_2019;User ID=Abisstaj2019;Password=Chha4773;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddIdentity<CustomIdentityUser, CustomIdentityRole>()
                 .AddEntityFrameworkStores<CustomIdentityDbContext>()
                 .AddDefaultTokenProviders();
             services.AddMvc();
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDistributedMemoryCache();
+
             // Facebook and Google authentication login 7/30/2019
             services.AddAuthentication(options =>
             {
@@ -63,10 +67,18 @@ namespace Abis.Mbs.MvcWebUI
                 options.AppSecret = "7fd60c3070e548a0d71ed4b6b4b1708c";
             });
 
+            // 8/1/2019
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public async void Configure
+            (IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory,
+            RoleManager<CustomIdentityRole> roleManager
+            )
         {
             if (env.IsDevelopment())
             {
@@ -79,6 +91,8 @@ namespace Abis.Mbs.MvcWebUI
             app.UseSession();
             app.UseMvc(ConfigureRoutes);
 
+            RoleInitializer.Initialize(roleManager);
+
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
@@ -86,5 +100,6 @@ namespace Abis.Mbs.MvcWebUI
             //Home/Index
             routeBuilder.MapRoute("Default", "{controller=HomePage}/{action=Index}/{id?}");
         }
+        
     }
 }
