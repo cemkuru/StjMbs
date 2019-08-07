@@ -84,7 +84,7 @@ namespace Abis.Mbs.MvcWebUI
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
             //Home/Index
-            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            routeBuilder.MapRoute("Default", "{controller=HomePage}/{action=Index}/{id?}");
         }
     }
 }

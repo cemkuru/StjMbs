@@ -27,12 +27,13 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         }
         public ActionResult Detial(int id)
         {
-
+           
             var announcements = _announcementService.GetById(id);
             AnnouncementViewModel model = new AnnouncementViewModel
             {
                 Announcement = announcements
             };
+          
             return View(model);
         }
 
