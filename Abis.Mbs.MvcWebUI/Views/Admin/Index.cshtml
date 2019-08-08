@@ -14,6 +14,7 @@
             <td>Title</td>
             <td>Description</td>
             <td>Date</td>
+            <td>photo</td>
 
             <td></td>
             <td></td>
@@ -24,10 +25,12 @@
             <td>@announcement.ATitle</td>
             <td>@announcement.ADescription</td>
             <td>@Html.DisplayFor(modelItem => announcement.ACreateDate)</td>
-            @*<td>@product.UnitsInStock</td>*@
+            @*<td><img src="@Url.Content(announcement.APhoto)" width="250" height="250"/> </td>*@
+                     
             <td><a class="btn btn-xs btn-info" asp-controller="Admin" asp-action="Update" asp-route-announcementId="@announcement.AnnouncementId">Update</a></td>
             <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-announcementId="@announcement.AnnouncementId">Delete</a></td>
         </tr>
         }
     </table>
+    
 </div>

@@ -1,8 +1,12 @@
 ﻿using Abis.Mbs.Business.Abstract;
+using Abis.Mbs.DataAccess.Concrete.EntityFramework;
 using Abis.Mbs.Entities.Concrete;
 using Abis.Mbs.MvcWebUI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
@@ -108,15 +112,29 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Announcement announcement)
+        public ActionResult Add(Announcement announcement,IFormFile image1)
         {
-            if (ModelState.IsValid)
+            //var db = new MbsContext();
+            //if(image1!=null)
+            //{
+            //    announcement.APhoto = new byte[image1.Length];
+            //    BinaryReader reader = new BinaryReader(image1.OpenReadStream());
+            //    announcement.APhoto = reader.ReadBytes((int)image1.Length);
+            //}
+            //db.Announcements.Add(announcement);
+            //db.SaveChanges();
+           
+            if (ModelState.IsValid && image1!=null)
             {
+                announcement.APhoto = new byte[image1.Length];
+                BinaryReader reader = new BinaryReader(image1.OpenReadStream());
+                announcement.APhoto = reader.ReadBytes((int)image1.Length);
                 _announcementService.Add(announcement);
 
                 TempData.Add("message", "Announcement was successfully added");
             }
-
+           
+            
             return RedirectToAction("Index");
         }
 
