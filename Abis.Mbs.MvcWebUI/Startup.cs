@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Abis.Mbs.Business.Abstract;
 using Abis.Mbs.Business.Concrete;
 using Abis.Mbs.DataAccess.Abstract;
@@ -36,6 +33,11 @@ namespace Abis.Mbs.MvcWebUI
             services.AddScoped<IJobService, JobManager>();
             services.AddScoped<IJobDal, EfJobDal>();
 
+            //Application job form
+
+            services.AddScoped<IJobFormService, JobFormManager>();
+            services.AddScoped<IJobFormDal, EfJobFormDal>();
+
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
@@ -43,7 +45,7 @@ namespace Abis.Mbs.MvcWebUI
             services.AddSingleton<ICartSessionService, CartSessionService>();
             services.AddScoped<ICartService, CartService>();
             services.AddDbContext<CustomIdentityDbContext>
-                (options => options.UseSqlServer("Data Source=staj2019.database.windows.net;Database=mbs_2019;User ID=Abisstaj2019;Password=Chha4773;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            (options => options.UseSqlServer("Data Source=abisstaj2019.database.windows.net;Database=mbs_2019;User ID=Abisstaj2019;Password=Chha4773;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddIdentity<CustomIdentityUser, CustomIdentityRole>()
                 .AddEntityFrameworkStores<CustomIdentityDbContext>()
                 .AddDefaultTokenProviders();

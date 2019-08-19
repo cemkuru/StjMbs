@@ -8,9 +8,6 @@ namespace Abis.Mbs.MvcWebUI.Models
 {
     public class JobUpdateViewModel
     {
-        public Announcement Product { get; set; }
-        public List<Category> Categories { get; set; }
-        public Announcement Announcement { get; set; }
-        public Job Job { get;  internal set; }
+        public Job Job {get; internal set;}
     }
 }

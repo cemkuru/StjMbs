@@ -15,28 +15,29 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         {
             _jobService = jobService;
         }
-
-        public ActionResult Index(string searchingString)
+        
+        
+        public ActionResult Index( string searchString)
         {
-            JobListViewModel model = new JobListViewModel();
-            var jobs = from m in _jobService.GetAll() select m;
-            if (!string.IsNullOrEmpty(searchingString))
-            {
-                
-                jobs = jobs.Where(x => x.Area.Contains(searchingString));
-            }
-            return View(jobs.ToList());
-        }
-        // public async Task<ActionResult> Index( string searchString)
-        //{
-        //    var jobs = from m in _jobService.GetAll() select m;
-        //    if (!string.IsNullOrEmpty(searchString))
-        //    {
-        //        jobs = jobs.Where(s => s.Area.Contains(searchString));
+            // Use LINQ to get list of genres.
 
-        //    }
-        //    return View(jobs.ToList());
-        //}
+
+            var jobList = new JobListViewModel();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+
+                jobList.Jobs.AddRange(_jobService.GetAll().Where(w => w.Area.ToLower().Contains(searchString.ToLower())));
+            }
+            else
+            {
+                jobList.Jobs.AddRange(_jobService.GetAll());
+            }
+
+            return View(jobList);
+        }
+
+     
 
         public ActionResult Details(int id)
         {
