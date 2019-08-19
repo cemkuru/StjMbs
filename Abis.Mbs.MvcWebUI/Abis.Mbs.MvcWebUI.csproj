@@ -20,7 +20,14 @@
 
 
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Image\" />
+=======
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\" />
+>>>>>>> b796146dd3a90b336c4faaed05888c4933670e70
   </ItemGroup>
 
 </Project>
