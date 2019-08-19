@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private IAnnouncementService _announcementService;
@@ -110,9 +110,9 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             }; 
             return View(model);
         }
-
+        //,IFormFile image1
         [HttpPost]
-        public ActionResult Add(Announcement announcement,IFormFile image1)
+        public ActionResult Add(Announcement announcement)
         {
             //var db = new MbsContext();
             //if(image1!=null)
@@ -124,18 +124,26 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             //db.Announcements.Add(announcement);
             //db.SaveChanges();
            
-            if (ModelState.IsValid && image1!=null)
+            //if (ModelState.IsValid && image1!=null)
+            //{
+            //    announcement.APhoto = new byte[image1.Length];
+            //    BinaryReader reader = new BinaryReader(image1.OpenReadStream());
+            //    announcement.APhoto = reader.ReadBytes((int)image1.Length);
+            //    _announcementService.Add(announcement);
+
+            //    TempData.Add("message", "Announcement was successfully added");
+            //}
+            if (ModelState.IsValid)
             {
-                announcement.APhoto = new byte[image1.Length];
-                BinaryReader reader = new BinaryReader(image1.OpenReadStream());
-                announcement.APhoto = reader.ReadBytes((int)image1.Length);
                 _announcementService.Add(announcement);
 
                 TempData.Add("message", "Announcement was successfully added");
             }
-           
-            
+
             return RedirectToAction("Index");
+
+
+           
         }
 
         public ActionResult Update(int announcementId)

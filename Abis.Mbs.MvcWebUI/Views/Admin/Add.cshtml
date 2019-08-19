@@ -24,7 +24,7 @@
         <input asp-for="Announcement.ACreateDate" class="form-control" />
         <span asp-validation-for="Announcement.ACreateDate" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
        @Html.LabelFor(model=>model.Announcement.APhoto,htmlAttributes:new { @class="control-label col-md-2"})
         <div class="col-md-10">
             @Html.EditorFor(model => model.Announcement.APhoto, new { htmlAttributes = new { @class = "form-control" } })
@@ -32,7 +32,7 @@
             <input type="file" id="image1" name="image1" />
         </div>
        
-    </div>
+    </div>*@
 
     <input type="submit" value="Add" class="btn btn-xs btn-success" />
 

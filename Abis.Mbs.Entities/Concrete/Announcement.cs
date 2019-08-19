@@ -20,10 +20,10 @@ namespace Abis.Mbs.Entities.Concrete
         [DataType(DataType.Date)]
         public DateTime? ACreateDate { get; set; }
 
-        [Display(Name = "APhoto")]
-        public byte[] APhoto { get; set; }
+        //[Display(Name = "APhoto")]
+        //public byte[] APhoto { get; set; }
 
-        
+
 
         //[Display(Name = "APhoto")]
         //public byte[] APhoto { get; set; }

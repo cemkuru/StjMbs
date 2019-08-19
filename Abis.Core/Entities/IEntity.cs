@@ -1,4 +1,6 @@
-﻿namespace Abis.Core.Entities
+﻿using System.Web;
+namespace Abis.Core.Entities
+
 {
     public interface IEntity
     {

@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Abis.Mbs.Business\Abis.Mbs.Business.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
+
 </Project>
