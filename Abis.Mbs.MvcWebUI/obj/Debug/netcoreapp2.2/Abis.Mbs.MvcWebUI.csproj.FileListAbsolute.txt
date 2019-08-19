@@ -13,6 +13,7 @@ C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\bin\Debug\netcoreapp2.2\Abis.
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\bin\Debug\netcoreapp2.2\Abis.Core.pdb
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\bin\Debug\netcoreapp2.2\Abis.Mbs.DataAccess.pdb
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\bin\Debug\netcoreapp2.2\Abis.Mbs.Entities.pdb
+C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.csprojAssemblyReference.cache
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.csproj.CoreCompileInputs.cache
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.RazorAssemblyInfo.cache
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.RazorAssemblyInfo.cs
@@ -63,4 +64,3 @@ C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.csproj.CopyComplete
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.dll
 C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.pdb
-C:\Users\lenovo\Documents\StjMbs\Abis.Mbs.MvcWebUI\obj\Debug\netcoreapp2.2\Abis.Mbs.MvcWebUI.csprojAssemblyReference.cache
