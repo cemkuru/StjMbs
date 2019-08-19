@@ -16,7 +16,6 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
 namespace Abis.Mbs.MvcWebUI
 {
     public class Startup
@@ -25,19 +24,23 @@ namespace Abis.Mbs.MvcWebUI
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
-
             // Job Service and job data acess layers
             services.AddScoped<IJobService, JobManager>();
             services.AddScoped<IJobDal, EfJobDal>();
+<<<<<<< HEAD
 
             //Application job form
 
             services.AddScoped<IJobFormService, JobFormManager>();
             services.AddScoped<IJobFormDal, EfJobFormDal>();
 
+=======
+            //Application job form
+            //services.AddScoped<IJobFormService, JobFormManager>();
+            //services.AddScoped<IJobFormDal, EfJobFormDal>();
+>>>>>>> 9fbbd0e066d8447d4951cf1fe3deb4c14e322113
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
@@ -53,7 +56,6 @@ namespace Abis.Mbs.MvcWebUI
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDistributedMemoryCache();
-
             // Facebook and Google authentication login 7/30/2019
             services.AddAuthentication(options =>
             {
@@ -68,12 +70,10 @@ namespace Abis.Mbs.MvcWebUI
                 options.AppId = "695158094276594";
                 options.AppSecret = "7fd60c3070e548a0d71ed4b6b4b1708c";
             });
-
             // 8/1/2019
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddMvc();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public async void Configure
             (IApplicationBuilder app,
@@ -86,22 +86,29 @@ namespace Abis.Mbs.MvcWebUI
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseFileServer();
             app.UseNodeModules(env.ContentRootPath);
             app.UseIdentity();
             app.UseSession();
             app.UseMvc(ConfigureRoutes);
-
             RoleInitializer.Initialize(roleManager);
-
         }
-
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
-            //Home/Index
-            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            
+            routeBuilder.MapRoute("Default", "{controller=HomePage}/{action=Index}/{id?}");
+
+            //routeBuilder.MapRoute(
+            //      name: "areas",
+            //      template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            //    );
+
         }
-        
+
     }
 }
+
+
+
+
+

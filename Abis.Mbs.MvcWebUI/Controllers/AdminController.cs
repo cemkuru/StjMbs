@@ -1,9 +1,16 @@
 ﻿using Abis.Mbs.Business.Abstract;
+using Abis.Mbs.DataAccess.Concrete.EntityFramework;
 using Abis.Mbs.Entities.Concrete;
 using Abis.Mbs.MvcWebUI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using System.Collections.Generic;
+=======
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
+>>>>>>> 9fbbd0e066d8447d4951cf1fe3deb4c14e322113
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
@@ -115,10 +122,29 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             }; 
             return View(model);
         }
-
+        //,IFormFile image1
         [HttpPost]
         public ActionResult Add(Announcement announcement)
         {
+            //var db = new MbsContext();
+            //if(image1!=null)
+            //{
+            //    announcement.APhoto = new byte[image1.Length];
+            //    BinaryReader reader = new BinaryReader(image1.OpenReadStream());
+            //    announcement.APhoto = reader.ReadBytes((int)image1.Length);
+            //}
+            //db.Announcements.Add(announcement);
+            //db.SaveChanges();
+           
+            //if (ModelState.IsValid && image1!=null)
+            //{
+            //    announcement.APhoto = new byte[image1.Length];
+            //    BinaryReader reader = new BinaryReader(image1.OpenReadStream());
+            //    announcement.APhoto = reader.ReadBytes((int)image1.Length);
+            //    _announcementService.Add(announcement);
+
+            //    TempData.Add("message", "Announcement was successfully added");
+            //}
             if (ModelState.IsValid)
             {
                 _announcementService.Add(announcement);
@@ -127,6 +153,9 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             }
 
             return RedirectToAction("Index");
+
+
+           
         }
 
         public ActionResult Update(int announcementId)

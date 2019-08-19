@@ -1,8 +1,8 @@
 ﻿using Abis.Core.Entities;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Web;
 
 namespace Abis.Mbs.Entities.Concrete
 {
@@ -19,6 +19,14 @@ namespace Abis.Mbs.Entities.Concrete
 
         [DataType(DataType.Date)]
         public DateTime? ACreateDate { get; set; }
+
+        //[Display(Name = "APhoto")]
+        //public byte[] APhoto { get; set; }
+
+
+
+        //[Display(Name = "APhoto")]
+        //public byte[] APhoto { get; set; }
         //public bool IsActive { get; set; }
 
 

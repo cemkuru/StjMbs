@@ -5,14 +5,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Abis.Mbs.MvcWebUI.Models;
+using Abis.Mbs.Business.Abstract;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private IAnnouncementService _announcementService;
+        public HomeController(IAnnouncementService announcementService)
+        {
+            _announcementService = announcementService;
+        }
         public IActionResult Index()
         {
-            return View();
+            var announcements = _announcementService.GetAll();
+            AnnouncementListViewModel model = new AnnouncementListViewModel
+            {
+                Announcements = announcements
+            };
+            return View(model);
+           
+        }
+
+        public ActionResult Details(int id)
+        {
+
+            var announcements = _announcementService.GetById(id);
+            AnnouncementViewModel model = new AnnouncementViewModel
+            {
+                Announcement = announcements
+            };
+
+            return View(model);
         }
 
         public IActionResult Privacy()

@@ -7,6 +7,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -15,6 +16,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Abis.Mbs.Business\Abis.Mbs.Business.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+
+    <Folder Include="Image\" />
+
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\" />
   </ItemGroup>
 
 </Project>
