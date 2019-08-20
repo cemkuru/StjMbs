@@ -1,8 +1,0 @@
-D:\StajProjesi\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.deps.json
-D:\StajProjesi\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.dll
-D:\StajProjesi\Abis.Core\bin\Debug\netcoreapp2.2\Abis.Core.pdb
-D:\StajProjesi\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.csproj.CoreCompileInputs.cache
-D:\StajProjesi\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInfoInputs.cache
-D:\StajProjesi\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.AssemblyInfo.cs
-D:\StajProjesi\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.dll
-D:\StajProjesi\Abis.Core\obj\Debug\netcoreapp2.2\Abis.Core.pdb
