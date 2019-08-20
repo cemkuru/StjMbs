@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Abis.Core.DataAccess.EntityFramework
 {
@@ -48,6 +49,7 @@ namespace Abis.Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
+        
 
         public void Delete(TEntity entity)
         {
@@ -58,5 +60,8 @@ namespace Abis.Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
+
+
+       
     }
 }

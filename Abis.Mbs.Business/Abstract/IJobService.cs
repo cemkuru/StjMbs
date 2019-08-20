@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Abis.Mbs.Entities.Concrete;
 
 
@@ -12,7 +13,7 @@ namespace Abis.Mbs.Business.Abstract
 
         void Add(Job job);
         void Update(Job job);
-        void Delete(int JobID);
-        Job GetById(int JobID);
+        void Delete(int JobId);
+        Job GetById(int JobId);
     }
 }

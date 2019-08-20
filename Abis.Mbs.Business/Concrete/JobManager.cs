@@ -4,6 +4,7 @@ using Abis.Mbs.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Abis.Mbs.Business.Concrete
 {
@@ -20,9 +21,9 @@ namespace Abis.Mbs.Business.Concrete
             _jobDal.Add(job);
         }
 
-        public void Delete(int jobID)
+        public void Delete(int jobId)
         {
-            _jobDal.Delete(new Job { JobID = jobID });
+            _jobDal.Delete(new Job { JobID = jobId });
         }
 
         public List<Job> GetAll()
@@ -30,14 +31,17 @@ namespace Abis.Mbs.Business.Concrete
             return _jobDal.GetList();
         }
 
-        public Job GetById(int jobID)
+        public Job GetById(int jobId)
         {
-            return _jobDal.Get(p => p.JobID == jobID);
+            return _jobDal.Get(p => p.JobID == jobId);
         }
 
         public void Update(Job job)
         {
             _jobDal.Update(job);
         }
+       
+
+        
     }
 }

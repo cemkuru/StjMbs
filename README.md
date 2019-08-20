@@ -3,7 +3,9 @@
 
 # ASP.NET Core & EntityFramework Core Based Startup Template
 
-This template is a simple startup project 
+
+This template is a simple startup project to start with 
+
 using ASP.NET Core and EntityFramework Core.
 
 ## Prerequirements
