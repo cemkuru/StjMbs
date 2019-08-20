@@ -9,11 +9,7 @@ namespace Abis.Mbs.DataAccess.Concrete.EntityFramework
 {
     public class MbsContext : DbContext
     {
-<<<<<<< HEAD
-       
-=======
 
->>>>>>> 9fbbd0e066d8447d4951cf1fe3deb4c14e322113
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,11 +20,10 @@ namespace Abis.Mbs.DataAccess.Concrete.EntityFramework
         public DbSet<Category> Categories { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<Job> Jobs { get; set; }
-<<<<<<< HEAD
+
         public DbSet<JobForm> JobForms { get; set; }
-=======
-        //public DbSet<JobForm> JobForms { get; set; }
->>>>>>> 9fbbd0e066d8447d4951cf1fe3deb4c14e322113
+      
+
 
     }
 }
