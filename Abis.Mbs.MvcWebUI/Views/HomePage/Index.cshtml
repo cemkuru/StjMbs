@@ -23,8 +23,15 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    @*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
 
     <link href="~/css/carousel.css" rel="stylesheet" />
+    <link href="~/css/boot.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -107,47 +114,34 @@
         </div>
 
 
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
+        
 
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
+
+
+
             <div class="row">
-               
-                   @foreach (var announcement in Model.Announcements)
-                   {
-                       <div class="col-lg-4" style="color:black" ;>
+            <div class="col-xs-12 col-lg-8">   </div>
+            <div class="col-xs-12 col-lg-4">
+                @foreach (var announcement in Model.Announcements)
+                {
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-12" style="color:black">
+                            <img class="rounded-circle" src="~/İmg/999999.jpg" alt="Generic placeholder image" width="140" height="140">
+                            <div style="float:right">
+                                <span class="date">@Html.DisplayFor(modelItem => announcement.ACreateDate)</span>
+                                <h4>@announcement.ATitle</h4>
+                                <p>@announcement.ADescription</p>
+                                <p><a class="btn btn-secondary" asp-action="Details" asp-route-id="@announcement.AnnouncementId" role="button">İncele &raquo;</a></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
 
-                           <img class="rounded-circle" src="~/İmg/999999.jpg" alt="Generic placeholder image" width="140" height="140">
-                           <h2>@announcement.ATitle</h2>
-                           <h5>@announcement.ACreateDate</h5>
-                           <p>@announcement.ADescription</p>
-                           <p><a class="btn btn-secondary" asp-action="Details" asp-route-id="@announcement.AnnouncementId" role="button">İncele &raquo;</a></p>
-
-                       </div>
-                   }
-               
 
 
-        </div>
-
-            
-            @*<div class="col-lg-4">
-        </div>    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>*@<!-- /.col-lg-4 -->
-            @*<div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>*@<!-- /.col-lg-4 -->
-            <!-- /.row -->
-            <!-- START THE FEATURETTES -->
 
             <hr class="featurette-divider">
 
@@ -200,7 +194,7 @@
             <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
         </footer>
     </main>
-
+    s
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
