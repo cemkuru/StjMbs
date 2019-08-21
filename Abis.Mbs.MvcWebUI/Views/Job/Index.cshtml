@@ -6,9 +6,9 @@
 
 <h1>Index</h1>
 
-<form asp-action="Index" asp-controller="Job">
+<form asp-controller="Job" asp-action="Index" method="get">
     <p>
-        Title: <input type="text" name="SearchinString">
+        Title: <input type="text" name="SearchString">
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -20,6 +20,7 @@
             <tr>
                 <td scope="col">Post</td>
                 <td scope="col">Area</td>
+                <td scope="col"></td>
             </tr>
         </thead>
 
@@ -29,11 +30,13 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => job.PostTitle)</td>
                     <td><a asp-action="Details" asp-route-id="@job.JobID">@job.Area</a> </td>
-                
+                    <td><a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="AddJobForm">Apply</a></td>
+
 
                 </tr>
             </tbody>
+
         }
     </table>
 
-    </div>
+</div>

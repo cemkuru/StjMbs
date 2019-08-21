@@ -29,9 +29,16 @@ namespace Abis.Mbs.MvcWebUI
             // Job Service and job data acess layers
             services.AddScoped<IJobService, JobManager>();
             services.AddScoped<IJobDal, EfJobDal>();
+
+
+            services.AddScoped<IJobFormService, JobFormManager>();
+            services.AddScoped<IJobFormDal, EfJobFormDal>();
+
+
             //Application job form
-            //services.AddScoped<IJobFormService, JobFormManager>();
-            //services.AddScoped<IJobFormDal, EfJobFormDal>();
+            services.AddScoped<IJobFormService, JobFormManager>();
+            services.AddScoped<IJobFormDal, EfJobFormDal>();
+
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<ICategoryService, CategoryManager>();

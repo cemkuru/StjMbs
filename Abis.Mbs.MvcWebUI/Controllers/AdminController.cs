@@ -1,12 +1,8 @@
 ﻿using Abis.Mbs.Business.Abstract;
-using Abis.Mbs.DataAccess.Concrete.EntityFramework;
 using Abis.Mbs.Entities.Concrete;
 using Abis.Mbs.MvcWebUI.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
@@ -16,12 +12,18 @@ namespace Abis.Mbs.MvcWebUI.Controllers
         private IAnnouncementService _announcementService;
         // Add Job Announcement Service
         private IJobService _jobService;
+        // Addd job application form
+        private IJobFormService _jobformService;
         
 
-        public AdminController(IAnnouncementService announcementService, ICategoryService categoryService, IJobService jobService)
+        public AdminController(IAnnouncementService announcementService,
+                            ICategoryService categoryService,
+                            IJobService jobService,
+                            IJobFormService jobformService)
         {
             _announcementService = announcementService;
             _jobService = jobService;
+            _jobformService = jobformService;
         }
         //Job Index
         public ActionResult JobIndex()
@@ -32,7 +34,8 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             };
             return View(jobListViewModel);
         }
-       
+
+        
 
         //Add Job
         public ActionResult AddJob()
@@ -52,11 +55,12 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             if (ModelState.IsValid)
             {
                 _jobService.Add(job);
-                TempData.Add("message", "Job has been added sucessfully");
+
+                TempData["addjobmessage"] = "Job has been added sucessfully";
             }
             return RedirectToAction("JobIndex");
         }
-
+          
         // Update Job
         public ActionResult UpdateJob(int JobId)
         {
@@ -75,23 +79,23 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             {
                 _jobService.Update(job);
 
-                TempData.Add("message", "Job was successfully updated");
+                TempData["updatejobmessage"] = "Job has been updated sucessfully";
             }
-
             return RedirectToAction("JobIndex");
         }
-
-
 
         public ActionResult DeleteJob(int JobId)
         {
             _jobService.Delete(JobId);
 
-            TempData.Add("message", "Job was successfully deleted");
+            TempData["deletejobmessage"] = "Job has been deleted sucessfully";
             return RedirectToAction("JobIndex");
         }
 
-        // Anouncement
+        //End Job
+
+        // Announcement
+
         public ActionResult Index()
         {
             var announcementListViewModel = new AnnouncementListViewModel
@@ -176,6 +180,69 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             TempData.Add("message", "Announcement was successfully deleted");
             return RedirectToAction("Index");
         }
+
+        // End Announcement
+
+        // Job Form Application
+
+        public ActionResult AddJobForm()
+        {
+            var model = new JobFormAddViewModel
+            {
+                JobForm = new JobForm(),
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddJobForm(JobForm jobform)
+        {
+            if (ModelState.IsValid)
+            {
+                _jobformService.Add(jobform);
+
+                TempData["applicationMessage"] = "Your application has been sent sucessfully";
+            }
+            return RedirectToAction("JobFormIndex");
+        }
+
+        // Job Form Index
+        public ActionResult JobFormIndex()
+        {
+            var jobFormListViewModel = new JobFormListViewModel
+            {
+                JobForms = _jobformService.GetAll()
+            };
+            return View(jobFormListViewModel);
+        }
+
+        // End JobForm
+
+        //public ActionResult FormIndex(int page = 1)
+        //{
+        //    // Use LINQ to get list of genres.
+
+
+        //    var jobforms = _jobformService.GetAll();
+
+        //    JobFormListViewModel model = new JobFormListViewModel
+        //    {
+        //        JobForms = jobforms
+        //    };
+        //    return View(model);
+        //}
+
+
+
+        //public ActionResult FormDetails(int id)
+        //{
+        //    var jobforms = _jobformService.GetById(id);
+        //    JobFormViewModel model = new JobFormViewModel
+        //    {
+        //        JobForm = jobforms
+        //    };
+        //    return View(model);
+        //}
 
     }
 }
