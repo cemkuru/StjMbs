@@ -1,16 +1,8 @@
 ﻿using Abis.Mbs.Business.Abstract;
-using Abis.Mbs.DataAccess.Concrete.EntityFramework;
 using Abis.Mbs.Entities.Concrete;
 using Abis.Mbs.MvcWebUI.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
-using System.Collections.Generic;
-=======
-using System.IO;
-using static System.Net.Mime.MediaTypeNames;
->>>>>>> 9fbbd0e066d8447d4951cf1fe3deb4c14e322113
+
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
