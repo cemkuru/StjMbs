@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Abis.Mbs.MvcWebUI.Models;
 using Abis.Mbs.Business.Abstract;
+using Microsoft.AspNetCore.Authorization;
+using Abis.Mbs.MvcWebUI.Areas.User.Models;
 
 namespace Abis.Mbs.MvcWebUI.Controllers
 {
+    [AllowAnonymous]
+
     public class HomeController : Controller
     {
         private IAnnouncementService _announcementService;

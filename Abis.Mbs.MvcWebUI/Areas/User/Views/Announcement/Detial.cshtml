@@ -1,8 +1,9 @@
 ﻿@model Abis.Mbs.MvcWebUI.Areas.User.Models.AnnouncementViewModel
 
+
 @{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/_Layout1.cshtml";
+    ViewData["Title"] = "Detial";
+    Layout = "~/Views/_AdminLayout.cshtml";
 }
 
 <h1></h1>
@@ -34,5 +35,5 @@
 </div>
 <div>
     @*<a asp-action="Edit" asp-route-id="@Model.Announcement.AnnouncementId">Edit</a> |*@
-    <a asp-action="Index">Back to List</a>
+    <a asp-area="" asp-controller="User" asp-action="Index">Back to List</a>
 </div>

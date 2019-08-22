@@ -177,7 +177,7 @@ namespace Abis.Mbs.MvcWebUI.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Homepage");
                 }
 
                 ModelState.AddModelError("", "Invalid login!");
@@ -281,7 +281,7 @@ namespace Abis.Mbs.MvcWebUI.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Admin", new { area = "Admin"});
             }
         }
 
